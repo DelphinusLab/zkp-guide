@@ -1,7 +1,18 @@
-# ZKWasm Playground Guide
+# ZKWasm Developers Guide
 
-- [ZKWasm Playground](./guides/zkwasm-playground/overview.md)
-- [ZKWasm Service Helper](./guides/zkwasm-service-helper/overview.md)
-- [ZKWasm Service CLI](./guides/zkwasm-service-cli/overview.md)
-- [ZKWasm E2E Testing](./guides/zkwasm-e2e-testing/overview.md)
-- [ZKWasm Rust Helper](./guides/zkwasm-rust-helper/overview.md)
+## Main Guides
+
+1. [ZKWasm Playground Guide](./guides/zkwasm-playground/README.md)
+2. [ZKWasm Service Helper](./guides/zkwasm-service-helper/README.md)
+3. [ZKWasm Service CLI](./guides/zkwasm-service-cli/README.md)
+4. [ZKWasm E2E Testing](./guides/zkwasm-e2e-testing/README.md)
+5. [ZKWasm Rust Helper](./guides/zkwasm-rust-helper/README.md)
+
+## Useful Links
+
+- [ZKWasm Playground (ZKP)](https://github.com/ZhenXunGe/zkWASM-playground)
+- [ZKWasm Playground E2E Tests](https://github.com/ZhenXunGe/playground-e2e-tests)
+- [ZKWasm Rust Service Helper](https://github.com/qozymandias/zkp-service-helper)
+- [ZKWasm Service CLI](https://github.com/DelphinusLab/zkWasm-service-cli)
+- [ZKWasm Service Helper](https://github.com/DelphinusLab/zkWasm-service-helper/)
+- [ZKWasm Docker Prover Node](https://github.com/DelphinusLab/prover-node-docker)

@@ -105,25 +105,14 @@ The diagram shows how the core services work together:
 
 Add/Reset image request:
 
-```markdown
+```
 Add/Reset image -> rest server -> Setup/Reset Pending -> Setup Node Server -> Submit result
 ```
 
 Add prove task request:
 
-```markdown
+```
 Add prove -> rest server -> Dry Run Pending -> Dry Run Server -> Submit result ------
                                                                                     |
                                Submit result <- Prove Server <- Prove Pending  <-----
-```
-
-### Viewing Requests in Flight
-
-You can use `tcpdump` to capture requests received and sent from Rest Server port:
-
-```bash
-port=$1
-tcpdump -i lo -A -s 0 \
-  "tcp port $port and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)" \
-  -w capture.pcap
 ```
