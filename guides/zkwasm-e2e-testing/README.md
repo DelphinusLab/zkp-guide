@@ -65,3 +65,17 @@ bash scripts/all_tests.sh
 
 
 https://github.com/ZhenXunGe/playground-e2e-tests/tree/TEST-BRANCH-PRODUCTION-IMAGES
+
+```
+git clone git@github.com:ZhenXunGe/playground-e2e-tests.git e2e
+
+cd e2e
+
+git checkout TEST-BRANCH-PRODUCTION-IMAGES
+
+bash scripts/cli/run_cli_tests.sh
+```
+
+For more documentation please this
+[README](https://github.com/ZhenXunGe/playground-e2e-tests/blob/TEST-BRANCH-PRODUCTION-IMAGES/README.md#running-zkwasm-service-cli-tests).
+

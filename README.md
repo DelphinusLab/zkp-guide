@@ -3,10 +3,12 @@
 ## Main Guides
 
 1. [ZKWasm Playground Guide](./guides/zkwasm-playground/README.md)
-2. [ZKWasm Service Helper](./guides/zkwasm-service-helper/README.md)
-3. [ZKWasm Service CLI](./guides/zkwasm-service-cli/README.md)
-4. [ZKWasm E2E Testing](./guides/zkwasm-e2e-testing/README.md)
-5. [ZKWasm Rust Helper](./guides/zkwasm-rust-helper/README.md)
+2. [ZKWasm E2E Testing](./guides/zkwasm-e2e-testing/README.md)
+
+## Service Helper Guides
+
+1. [ZKWasm Service Helper](./guides/zkwasm-service-helper/README.md)
+2. [ZKWasm Service CLI](./guides/zkwasm-service-cli/README.md)
 
 ## Useful Links
 

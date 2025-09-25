@@ -72,3 +72,7 @@ index f989301b..3d11e4e0 100644
      "credited_amount": "200000",
 ```
 
+### Increasing Account's Credits 
+
+TODO
+

@@ -151,7 +151,7 @@ Example Network config:
 
 ```json
 {
-  "server_url": "http://localhost:$REPLACE_WITH_YOUR_LOCAL_PORT",
+  "server_url": "http://localhost:$REPLACE_WITH_REST_SERVER_PORT",
   "private_key": "$REPLACE_WITH_YOUR_METAMASK_NODE_PRIVATE_KEY",
   "address": "$REPLACE_WITH_YOUR_METAMASK_NODE_ADDRESS"
 }
@@ -194,7 +194,7 @@ Adjust to the your local port which is avaible. This is where API requests are r
 `run.sh`
 
 ```
-RUST_LOG=info cargo run --release --features profile -- --config server_config.json -w server_storage --rocksdbworkspace rocksdb --restport $REPLACE_WITH_YOUR_LOCAL_PORT
+RUST_LOG=info cargo run --release --features profile -- --config server_config.json -w server_storage --rocksdbworkspace rocksdb --restport $REPLACE_WITH_REST_SERVER_PORT
 ```
 
 #### Update MongoDB Script
@@ -216,7 +216,7 @@ Update the Port and Rest URL variables in web environment file.
 
 ```
 $PORT=$REPLACE_WITH_YOUR_EXPOSED_PORT_FOR_WEB_PAGE
-$REACT_APP_REST_URL='http://localhost:$REPLACE_WITH_YOUR_LOCAL_PORT'
+$REACT_APP_REST_URL='http://localhost:$REPLACE_WITH_REST_SERVER_PORT'
 ```
 
 ### 4. Update Prover Service Configs and Scripts
@@ -236,7 +236,7 @@ Update Prover config with address and private key.
 `prover_config.json`
 
 ```
-"server_url": "http://localhost:$REPLACE_WITH_YOUR_LOCAL_PORT",
+"server_url": "http://localhost:$REPLACE_WITH_REST_SERVER_PORT",
 "priv_key": "$REPLACE_WITH_YOUR_METAMASK_NODE_PRIVATE_KEY",
 ```
 
@@ -245,7 +245,7 @@ Update Prover config with address and private key.
 `prover_system_config.json`
 
 ```
-    "server_url": "http://localhost:$REPLACE_WITH_YOUR_LOCAL_PORT",
+    "server_url": "http://localhost:$REPLACE_WITH_REST_SERVER_PORT",
 }
 ```
 
@@ -263,8 +263,8 @@ RUST_LOG=info RUST_BACKTRACE=1 cargo run --release --features profile -- --confi
 
 ```
 {
-    "server_url": "http://localhost:$REPLACE_WITH_YOUR_LOCAL_PORT",
-    "private_key": "$REPLACE_WITH_DEPLOYER_PRIVATE_KEY",
+    "server_url": "http://localhost:$REPLACE_WITH_REST_SERVER_PORT",
+    "private_key": "$REPLACE_WITH_YOUR_AUTO_SUBMIT_NODE_PRIVATE_KEY",
     "network": {
         "chain_id": $REPLACE_WITH_TEST_NET_CHAIN_ID_NUMBER,
         "rpc_url": "$REPLACE_WITH_TEST_NET_RPC_URL"
@@ -288,26 +288,79 @@ bash scripts/deployments/prepare/perform_server_setup.sh
 Start the service, in each its own tmux screen.
 
 1. `MongoDB`
-    ```
-    bash run_mongodb_replica_set.sh
-    ```
+   ```
+   bash run_mongodb_replica_set.sh
+   ```
 2. Rest Server
-    ```
-    bash run.sh
-    ```
+   ```
+   bash run.sh
+   ```
 3. Dry Run Server
-    ```
-    bash run_rest_dry_run_service.sh
-    ```
+   ```
+   bash run_rest_dry_run_service.sh
+   ```
 4. Prover Server
-    ```
-    bash runprover.sh
-    ```
+   ```
+   bash runprover.sh
+   ```
 5. Setup Node Server
-    ```
-    bash run_setupnode.sh
-    ```
+   ```
+   bash run_setupnode.sh
+   ```
 6. Auto Submit Server
-    ```
-    bash run_auto_submit.sh
-    ```
+   ```
+   bash run_auto_submit.sh
+   ```
+
+### 7. Start Web GUI
+
+Install dependencies
+
+```
+npm install
+```
+
+Run
+
+```
+npm run start
+```
+
+### 8. Testing, Formatting and Linting
+
+#### Unit Testing
+
+Most basic tests, excludes testing prove and database functionality.
+
+```
+cargo tests
+```
+
+#### System Testing
+
+This script runs tests that verifies setup and prove functionality, requires the prepare script to have been run.
+
+```
+bash scripts/tests/test_all.sh
+```
+
+#### E2E Testing
+
+[see guide here](../zkwasm-e2e-testing/README.md)
+
+#### Formatting
+
+```
+# Rust code format
+cargo fmt
+
+# Web code format
+cd web && npm run format && cd ..
+```
+
+#### Linting
+
+```
+cargo lint
+cargo lint_tests
+```
