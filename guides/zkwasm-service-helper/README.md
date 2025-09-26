@@ -4,8 +4,24 @@
 
 ## Overview
 
-The Service Helper is a library for interfacing with the ZKWasm Playground Platform.
-The Javascript/Typescript functions are helpers for hitting API endpoints.
+The Service Helper is a TypeScript library designed to facilitate communication with the ZKWasm service backend.
+It provides a `ZkWasmServiceHelper` class that exposes APIs for managing WASM images, adding proving tasks, and querying
+tasks or images.
+The library also includes example scripts and testing utilities to help developers interact with the service and
+automate workflows.
+
+Key Features
+
+- API Access: Methods for querying images, loading tasks, adding new WASM images, and submitting proving tasks.
+
+- Task Management: Supports both manual and auto submit proofs.
+
+- Testing Utilities: Includes scripts to test utility functions, query APIs, task APIs, and archive server interactions.
+
+- Examples: Ready-to-run examples for adding images, submitting proofs, verifying tasks, and performing queries.
+
+- Configurable: Example scripts can be customized using environment variables for server URL, private keys, chain IDs,
+  task IDs, and proof submission modes.
 
 ## Usage
 
@@ -49,7 +65,6 @@ Example of `tests/config.json`:
 }
 ```
 
-
 ### 3. Run all test scripts
 
 Run query related tests:
@@ -68,7 +83,11 @@ npm run test tasks
 
 ### Rust Example
 
-In this [repo](https://github.com/qozymandias/zkp-service-helper) provides the same interface in `Rust` code.
+This [repo](https://github.com/qozymandias/zkp-service-helper) provides the same provides utilities and interface
+for interacting with the ZKWasm service backend, similar to the TypeScript library.
+
+This crate demonstrates how to implement platform functions in Rust and can be used for scripting and testing
+workflows with the ZKWasm service.
 
 ```
 git clone https://github.com/qozymandias/zkp-service-helper
@@ -77,6 +96,7 @@ cd zkp-service-helper
 ```
 
 Example testing config:
+
 ```
 {
     "details": {
